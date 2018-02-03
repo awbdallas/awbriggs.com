@@ -1,0 +1,9 @@
+{
+  "name": "awbriggs.com",
+  "dependencies": {
+    "webpack": "^3.10.0"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}
