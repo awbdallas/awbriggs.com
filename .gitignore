@@ -1,0 +1,9 @@
+# Intellij related
+.idea/
+
+# Webpack/js related
+node_modules/
+dist/
+
+# python related
+venv/
