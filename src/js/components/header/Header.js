@@ -1,31 +1,35 @@
 import React, { Component } from 'react'
 import {
-    BrowserRouter as Router,
-    Route,
     Link
 } from 'react-router-dom'
 
-import { Home } from '../home';
-import { About } from '../about';
+import PropTypes from 'prop-types'
 
-import './heaer.css'
+import './header.scss'
 
 export default class Header extends Component {
     render() {
         return (
-            <Router>
+            <div>
                 <div className="header">
                     <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/about">About</Link></li>
+                        { this.props.tabs.map((object, index) => {
+                            return (
+                                <li key={index}>
+                                    <Link to={`/${object.name}`}>{object.name}</Link>
+                                </li>)
+                        })}
                     </ul>
-
-                    <hr/>
-
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/about" component={About} />
                 </div>
-            </Router>
+            </div>
         )
     }
 }
+
+
+Header.propTypes = {
+    tabs: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        component: PropTypes.func
+    })).isRequired
+};

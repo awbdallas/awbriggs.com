@@ -1,0 +1,26 @@
+.header {
+  display: grid;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    column-gap: 0;
+    column-count: 3;
+
+    li {
+      text-decoration: none;
+      padding: 15px 0;
+      text-align: center;
+      background: rgb(151, 188, 244);
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+}
+
+
