@@ -4,12 +4,12 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const paths = {
     DIST: path.resolve(__dirname, 'dist'),
-    SRC: path.resolve(__dirname, 'src'),
-    JS: path.resolve(__dirname, 'src/js')
+    SRC: path.resolve(__dirname, 'src/client'),
+    JS: path.resolve(__dirname, 'src/client/js')
 };
 
 module.exports = {
-    entry: path.join(paths.JS, 'index.js'),
+    entry: [path.join(paths.JS, 'index.js'), 'font-awesome/scss/font-awesome.scss'],
     output: {
         publicPath: '/dist',
         path: paths.DIST,
@@ -38,6 +38,9 @@ module.exports = {
                 },{
                     loader: "sass-loader"
                 }]
+            }, {
+                test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
+                loader: 'url-loader'
             }
         ]
     },

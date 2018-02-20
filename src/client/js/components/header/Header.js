@@ -12,14 +12,16 @@ export default class Header extends Component {
         return (
             <div>
                 <div className="header">
-                    <ul>
-                        { this.props.tabs.map((object, index) => {
-                            return (
-                                <li key={index}>
-                                    <Link to={`/${object.name}`}>{object.name}</Link>
-                                </li>)
-                        })}
-                    </ul>
+                    <nav>
+                        <ul>
+                            { this.props.tabs.map((object, index) => {
+                                return (
+                                    <li key={index}>
+                                        <Link to={`/${object.name}`}>{object.name}</Link>
+                                    </li>)
+                            })}
+                        </ul>
+                    </nav>
                 </div>
             </div>
         )
