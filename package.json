@@ -19,10 +19,13 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "webpack --watch --progress",
+    "dev": "webpack-dev-server --progress --colors",
+    "start": "webpack --watch --progress && npm run dev",
     "test:watch": "jest --watchAll"
   },
   "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "browser-sync-webpack-plugin": "^2.0.1",
     "css-loader": "^0.28.9",
     "file-loader": "^1.1.6",
     "font-awesome-loader": "^1.0.2",
@@ -33,7 +36,8 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.1",
     "url-loader": "^0.6.2",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/setup.js",
