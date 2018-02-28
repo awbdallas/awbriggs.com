@@ -7,3 +7,4 @@ dist/
 
 # python related
 venv/
+**__pycache__**

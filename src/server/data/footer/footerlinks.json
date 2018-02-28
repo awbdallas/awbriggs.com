@@ -1,3 +1,16 @@
 {
-  "a": "b"
+  "Links": [
+    {"Github": {
+      "Image": "font-awesome:f09b",
+      "Link": "https://github.com/awbdallas"
+    }},
+    {"LinkedIn": {
+      "Image": "https://image.flaticon.com/icons/svg/34/34227.svg",
+      "Link": "https://www.linkedin.com/in/awbdallas"
+    }},
+    {"Email": {
+      "Image": "font-awesome:f1fa",
+      "Link": "mailto:awbdallas@gmail.com"
+    }}
+  ]
 }
