@@ -43,8 +43,7 @@ jobs:
 
       - run:
           name: run jest test
-          command: ./node_modules/.bin/jest
+          command: mkdir test-results && ./node_modules/.bin/jest --outputFile=test-results/jest
 
-      - store_artifacts:
-          path: test-reports
-          destination: test-reports
+      - store_test_results:
+          path: test-results
