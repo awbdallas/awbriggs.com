@@ -6,15 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
       - image: circleci/python:3.5-jessie-node
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
 
     working_directory: ~/awbriggs.com
 
@@ -26,29 +18,28 @@ jobs:
           keys:
           - python-dependencies-{{ checksum "requirements.txt" }}
           - node-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
 
       - run:
           name: install python dependencies
-          command: |
-          python3 -m venv venv
-          . venv/bin/activate
-          pip install -r requirements.txt
+          command: sudo pip install -r requirements.txt
+
+      - save_cache:
+          key: python-dependencies-{{ checksum "requirements.txt" }}
+          paths:
+            - "venv"
 
       - run:
           name: install npm dependencies
           command: npm install
 
       - save_cache:
-          paths:
-            - ./node_modules/
           key: node-dependencies-{{ checksum "package.json" }}
+          paths:
+            - "node_modules"
 
       - run:
           name: run python tests
-          command: |
-          . venv/bin/activate
-          python3 -m unittest discover -s server -p '*Test.py'
+          command: python3 -m unittest discover -s server -p '*Test.py'
 
       - run:
           name: run jest test

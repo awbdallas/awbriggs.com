@@ -3,7 +3,7 @@ import expect from 'expect';
 
 import { shallow } from 'enzyme';
 
-import { Header } from '../src/js/components/header';
+import { Header } from '../client/js/components/header';
 
 const tabs = [
     {

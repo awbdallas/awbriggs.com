@@ -3,7 +3,7 @@ import expect from 'expect';
 
 import { shallow } from 'enzyme';
 
-import { About } from '../src/js/components/about';
+import { About } from '../client/js/components/about';
 
 
 describe('App components', () => {

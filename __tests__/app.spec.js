@@ -3,9 +3,9 @@ import expect from 'expect';
 
 import { shallow } from 'enzyme';
 
-import App from '../src/js/app';
+import App from '../client/js/app';
 
-import { Header } from '../src/js/components/header';
+import { Header } from '../client/js/components/header';
 
 
 describe('App components', () => {
