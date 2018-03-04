@@ -1,5 +1,5 @@
 from flask import Flask, send_from_directory, json
-from server.server.api.FooterLinks import FooterLinks
+from server.api.FooterLinks import FooterLinks
 
 app = Flask(__name__, static_folder='../../dist')
 
