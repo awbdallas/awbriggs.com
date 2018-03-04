@@ -1,6 +1,6 @@
 import unittest
 
-from src.server.api.FooterLinks import FooterLinks
+from server.server.api.FooterLinks import FooterLinks
 from unittest.mock import MagicMock
 
 
