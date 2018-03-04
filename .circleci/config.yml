@@ -30,11 +30,15 @@ jobs:
 
       - run:
           name: install python dependencies
-          command: pip install -r requirements.txt
+          command: |
+          python3 -m venv venv
+          . venv/bin/activate
+          pip install -r requirements.txt
 
       - run:
           name: install npm dependencies
           command: npm install
+
       - save_cache:
           paths:
             - ./node_modules/
@@ -42,7 +46,10 @@ jobs:
 
       - run:
           name: run python tests
-          command: python3 -m unittest discover -s server -p '*Test.py'
+          command: |
+          . venv/bin/activate
+          python3 -m unittest discover -s server -p '*Test.py'
+
       - run:
           name: run jest test
           command: ./node_modules/.bin/jest
