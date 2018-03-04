@@ -36,7 +36,7 @@ jobs:
 
       - run:
           name: install python dependencies
-          command: pip install -r requirements.txt
+          command: pip3 install -r requirements.txt
 
       - run:
           name: install npm dependencies
@@ -46,14 +46,9 @@ jobs:
             - ./node_modules/
           key: node-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
-      # this example uses Django's built-in test-runner
-      # other common Python testing frameworks include pytest and nose
-      # https://pytest.org
-      # https://nose.readthedocs.io
       - run:
           name: run python tests
-          command: python -m unittest discover -s server -p '*Test.py'
+          command: python3 -m unittest discover -s server -p '*Test.py'
       - run:
           name: run jest test
           command: ./node_modules/.bin/jest
