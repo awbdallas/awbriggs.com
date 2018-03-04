@@ -35,10 +35,6 @@ jobs:
           # fallback to using the latest cache if no exact match is found
 
       - run:
-          name: get npm
-          command: ''
-
-      - run:
           name: install python dependencies
           command: |
             python3 -m venv venv
