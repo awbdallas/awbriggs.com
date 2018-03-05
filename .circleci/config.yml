@@ -42,8 +42,17 @@ jobs:
           command: python3 -m unittest discover -s server -p '*Test.py'
 
       - run:
+          name: Mae test directory
+          command: mkdir -p test-reports/junit
+
+      - run:
           name: run jest test
-          command: mkdir test-results && ./node_modules/.bin/jest --outputFile=test-results/jest
+          command: ./node_modules/.bin/jest --runInBand --ci --testResultsProcessor="jest-junit"
+          environment:
+            JEST_JUNIT_OUTPUT: "test-reports/junit/js-test-results.xml"
 
       - store_test_results:
-          path: test-results
+          path: test-reports
+
+      - store_artifacts:
+          path: test-reports
