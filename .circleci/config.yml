@@ -23,11 +23,6 @@ jobs:
           name: install python dependencies
           command: sudo pip install -r requirements.txt
 
-      - save_cache:
-          key: python-dependencies-{{ checksum "requirements.txt" }}
-          paths:
-            - "venv"
-
       - run:
           name: install npm dependencies
           command: npm install
@@ -38,12 +33,12 @@ jobs:
             - "node_modules"
 
       - run:
-          name: run python tests
-          command: python3 -m unittest discover -s server -p '*Test.py'
+          name: Make test directory
+          command: mkdir -p test-reports/junit
 
       - run:
-          name: Mae test directory
-          command: mkdir -p test-reports/junit
+          name: run python tests
+          command: python3  server/server/test/__init__.py
 
       - run:
           name: run jest test

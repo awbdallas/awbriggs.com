@@ -8,3 +8,6 @@ dist/
 # python related
 venv/
 **__pycache__**
+
+# Testing related
+test-reports/
