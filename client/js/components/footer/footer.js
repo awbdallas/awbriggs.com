@@ -15,22 +15,32 @@ export default class Footer extends Component {
         }
     }
 
+    componentDidMount() {
+        let response = this.getFooterLinks()
+    }
+
     render() {
         return (
-            <div className="footer" >
-                Hello Footer
-            </div>
+            <React.Fragment>
+                { this.state.footerLinks && this.getFooter(this.state.footerLinks) }
+            </React.Fragment>
         )
     }
 
 
-    compoentDidMount() {
-        let response = getFooterLinks()
+
+    getFooter(footerLinks) {
+        return (
+            <ul>
+                {footerLinks.map((data, index) => {
+                    <li> </li>
+                })}
+            </ul>
+        )
     }
 
     getFooterLinks() {
-        axios.get(FOOTER_API_ENDPOINT).then(() => {
-            console.log('hello')
+        axios.get(FOOTER_API_ENDPOINT).then((data) => {
         })
     }
 }
