@@ -1,16 +1,19 @@
 {
   "Links": [
-    {"Github": {
-      "Image": "font-awesome:f09b",
+    {
+      "Name": "Github",
+      "Image": "font-awesome:fa fa-github",
       "Link": "https://github.com/awbdallas"
-    }},
-    {"LinkedIn": {
-      "Image": "https://image.flaticon.com/icons/svg/34/34227.svg",
+    },
+    {
+      "Name": "LinkedIn",
+      "Image": "font-awesome:fa fa-linkedin",
       "Link": "https://www.linkedin.com/in/awbdallas"
-    }},
-    {"Email": {
-      "Image": "font-awesome:f1fa",
+    },
+    {
+      "Name": "Email",
+      "Image": "font-awesome:fa fa-envelope",
       "Link": "mailto:awbdallas@gmail.com"
-    }}
+    }
   ]
 }

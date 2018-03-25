@@ -4,7 +4,7 @@ import { Header } from './components/header'
 
 import { Home } from './components/home'
 import { About } from './components/about'
-import { Examples } from './components/examples'
+import { Portfolio } from './components/portfolio'
 import { Footer } from './components/footer'
 
 import {
@@ -23,8 +23,8 @@ const tabs = [
         component: About
     },
     {
-        name: 'Examples',
-        component: Examples
+        name: 'Portfolio',
+        component: Portfolio
     }
 ]
 

@@ -1,0 +1,54 @@
+//<h1 className="home-title">Home Page Example</h1>
+//<h2 className="blog-section-header">Recent Blog Posts</h2>
+//<h4 className="blog-header">Blog Header</h4>
+//<img className="blog-image" />
+//<div className="blog summary">Blog Summary</div>
+
+
+.home {
+  .home-title {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 34px;
+    line-height: 34px;
+    color: darkgray;
+  }
+
+  .blog-section-header {
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 20px;
+    color: slategray;
+  }
+
+}
+
+.blog {
+  display: grid;
+  margin: 0 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  border-spacing: 5px;
+  padding: 15px;
+  box-shadow: 1px 2px gray;
+  grid-template-columns: 50px auto;
+
+  .blog-image {
+    height: 32px;
+    width: 32px;
+  }
+
+  .blog-summary {
+    margin: 5px 0;
+  }
+
+  .blog-read-more {
+    text-align: center;
+    vertical-align: center;
+  }
+}
+
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
