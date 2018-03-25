@@ -1,5 +1,5 @@
-.home {
-  .home-title {
+.portfolio {
+  .portfolio-title {
     margin: 20px 0;
     text-align: center;
     font-size: 34px;
@@ -7,8 +7,8 @@
     color: darkgray;
   }
 
-  .blog-section-header {
-    margin-bottom: 10px;
+  .portfolio-section-header {
+    margin: 20px 0;
     font-size: 20px;
     line-height: 20px;
     color: slategray;
@@ -16,7 +16,7 @@
 
 }
 
-.blog {
+.examples {
   display: grid;
   margin: 0 5px;
   border: 1px solid gray;
@@ -24,24 +24,21 @@
   border-spacing: 5px;
   padding: 15px;
   box-shadow: 1px 2px gray;
-  grid-template-columns: 75px auto;
 
-  .blog-image {
+  .example-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     height: 64px;
     width: 64px;
   }
 
-  .blog-summary {
+  .example-summary {
     margin: 5px 0;
-  }
-
-  .blog-read-more {
-    text-align: center;
-    vertical-align: center;
   }
 }
 
-.blog-container {
+.examples-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }

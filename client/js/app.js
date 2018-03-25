@@ -10,6 +10,7 @@ import { Footer } from './components/footer'
 import {
     BrowserRouter as Router,
     Route,
+    Redirect
 } from 'react-router-dom'
 
 
@@ -33,6 +34,7 @@ export default class App extends Component {
         return (
             <Router>
                 <React.Fragment>
+                    <Redirect from="/" to={tabs[0].name} />
                     <Header tabs={tabs} />
                     { tabs.map((object, index) => {
                         return <Route exact key={index} path={`/${object.name}`} component={object.component} />

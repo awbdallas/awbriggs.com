@@ -36,7 +36,7 @@ export default class Footer extends Component {
                 <ul>
                     {this.state.footerLinks.map((data, index) => {
                         return <li key={index} className="footer-link">
-                                    <a className={data.Image.split(':')[1]} />
+                                    <a href={data.Link} className={data.Image.split(':')[1]} />
                                 </li>
                     })}
                 </ul>}

@@ -21,15 +21,7 @@ describe('Footer component', () => {
         expect(shallow(<Footer />)).toBeDefined()
     })
 
-    it('stub request', () => {
-        let spy = jest.spyOn(Footer.prototype, 'getFooterLinks')
-        mount(<Footer />)
-
-        expect(spy).toHaveBeenCalled()
-        spy.mockRestore()
-    })
-
-    it('Creates as many tabs as the response gives', () => {
+    it('Test Tabs on multiple', () => {
         let component = mount(<Footer />)
 
         component.setState({
@@ -37,6 +29,17 @@ describe('Footer component', () => {
         })
 
         expect(component.find('.footer-link').length).toBe(3)
+
+    })
+
+    it('Test tab creation on single', () => {
+        let component = mount(<Footer />)
+
+        component.setState({
+            footerLinks: makeMockLinks(1)
+        })
+
+        expect(component.find('.footer-link').length).toBe(1)
 
     })
 
