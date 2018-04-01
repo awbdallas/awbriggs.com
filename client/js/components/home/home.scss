@@ -1,0 +1,47 @@
+.home {
+  .home-title {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 34px;
+    line-height: 34px;
+    color: darkgray;
+  }
+
+  .blog-section-header {
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 20px;
+    color: slategray;
+  }
+
+}
+
+.blog {
+  display: grid;
+  margin: 0 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  border-spacing: 5px;
+  padding: 15px;
+  box-shadow: 1px 2px gray;
+  grid-template-columns: 75px auto;
+
+  .blog-image {
+    height: 64px;
+    width: 64px;
+  }
+
+  .blog-summary {
+    margin: 5px 0;
+  }
+
+  .blog-read-more {
+    text-align: center;
+    vertical-align: center;
+  }
+}
+
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}

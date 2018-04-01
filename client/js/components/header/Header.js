@@ -13,7 +13,7 @@ export default class Header extends Component {
             <div>
                 <div className="header">
                     <nav>
-                        <ul>
+                        <ul style={{ columnCount: this.props.tabs.length }}>
                             { this.props.tabs.map((object, index) => {
                                 return (
                                     <li key={index}>

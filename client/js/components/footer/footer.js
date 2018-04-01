@@ -4,7 +4,7 @@ import './footer.scss'
 
 import axios from 'axios'
 
-const FOOTER_API_ENDPOINT = '/api/footer-link'
+const FOOTER_API_ENDPOINT = '/api/footer-links'
 
 export default class Footer extends Component {
     constructor(props){
@@ -16,31 +16,39 @@ export default class Footer extends Component {
     }
 
     componentDidMount() {
-        let response = this.getFooterLinks()
+        this.getFooterLinks()
+    }
+
+    reduceToState(type, response) {
+        switch(type) {
+            case 'FOOTER_LINKS':
+                this.setState({ footerLinks : response })
+                break
+            default:
+                break
+        }
     }
 
     render() {
         return (
-            <React.Fragment>
-                { this.state.footerLinks && this.getFooter(this.state.footerLinks) }
-            </React.Fragment>
-        )
-    }
-
-
-
-    getFooter(footerLinks) {
-        return (
-            <ul>
-                {footerLinks.map((data, index) => {
-                    <li> </li>
-                })}
-            </ul>
+            <div className="footer" style={{ columnCount: this.state.footerLinks.length }}>
+                { this.state.footerLinks &&
+                <ul>
+                    {this.state.footerLinks.map((data, index) => {
+                        return <li key={index} className="footer-link">
+                                    <a href={data.Link} className={data.Image.split(':')[1]} />
+                                </li>
+                    })}
+                </ul>}
+            </div>
         )
     }
 
     getFooterLinks() {
         axios.get(FOOTER_API_ENDPOINT).then((data) => {
+            this.reduceToState('FOOTER_LINKS', data.data)
+        }).catch((error) => {
+            this.reduceToState('FOOTER_LINKS', ['1', '2', '3'])
         })
     }
 }

@@ -5,8 +5,8 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const paths = {
     DIST: path.resolve(__dirname, 'dist'),
-    SRC: path.resolve(__dirname, 'src/client'),
-    JS: path.resolve(__dirname, 'src/client/js')
+    SRC: path.resolve(__dirname, 'client'),
+    JS: path.resolve(__dirname, 'client/js')
 };
 
 module.exports = {
@@ -53,5 +53,10 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {}
+    },
+    devServer: {
+        contentBase: path.join(__dirname, "dist"),
+        compress: true,
+        port: 9000
     }
 };

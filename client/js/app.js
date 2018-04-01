@@ -4,12 +4,13 @@ import { Header } from './components/header'
 
 import { Home } from './components/home'
 import { About } from './components/about'
-import { Examples } from './components/examples'
+import { Portfolio } from './components/portfolio'
 import { Footer } from './components/footer'
 
 import {
     BrowserRouter as Router,
     Route,
+    Redirect
 } from 'react-router-dom'
 
 
@@ -23,8 +24,8 @@ const tabs = [
         component: About
     },
     {
-        name: 'Examples',
-        component: Examples
+        name: 'Portfolio',
+        component: Portfolio
     }
 ]
 
@@ -33,6 +34,7 @@ export default class App extends Component {
         return (
             <Router>
                 <React.Fragment>
+                    <Redirect from="/" to={tabs[0].name} />
                     <Header tabs={tabs} />
                     { tabs.map((object, index) => {
                         return <Route exact key={index} path={`/${object.name}`} component={object.component} />

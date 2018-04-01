@@ -1,7 +1,29 @@
 .footer {
   position: absolute;
+  display: grid;
   height: 50px;
   bottom: 0;
   width: 100%;
   background: #525151;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    column-gap: 0;
+    column-count: 3;
+
+    li {
+      text-decoration: none;
+      padding: 15px 0;
+      text-align: center;
+      background: #525151;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
 }
+
