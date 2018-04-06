@@ -1,5 +1,6 @@
 from flask import Flask, send_from_directory, json
 from server.api.FooterLinks import FooterLinks
+from server.api.About import About
 
 app = Flask(__name__, static_folder='../../dist')
 
@@ -18,6 +19,14 @@ def get_footer_links():
         mimetype='application/json'
     )
 
+
+@app.route('/api/about')
+def get_about_info():
+    return app.response_class(
+        response=json.dumps(About.get_all_about_values()),
+        status=200,
+        mimetype='application/json'
+    )
 
 if __name__ == '__main__':
     app.run()
