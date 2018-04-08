@@ -1,14 +1,14 @@
 import React from 'react';
 import expect from 'expect';
 
-import axios from 'axios'
+import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
 import { shallow, mount } from 'enzyme';
 
 import { Footer } from '../client/js/components/footer';
 
-const FOOTER_API_ENDPOINT = '/api/footer-links'
+const FOOTER_API_ENDPOINT = '/api/footer-links';
 
 describe('Footer component', () => {
     let mock

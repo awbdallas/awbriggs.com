@@ -1,0 +1,16 @@
+{
+  "about": [
+    {
+      "section": "Summary",
+      "content": "I'm a Software Engineer living in DFW striving to be better."
+    },
+    {
+      "section": "Prior Work Experience",
+      "content": "I currently work as an Associate Consultant at Improving Enterprises as a full-stack-developer, but have worked previously as an intern at Raytheon and Heartland Payment Systems."
+    },
+    {
+      "section": "School",
+      "content": "I have a degree in Software Engineering from The University of Texas at Dallas."
+    }
+  ]
+}
