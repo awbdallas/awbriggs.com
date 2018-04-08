@@ -29,7 +29,7 @@ export default class About extends Component {
             <div className="about-title">About Me</div>
             {this.state.aboutInfo && this.state.aboutInfo.map((item, index) => {
                 return (
-                    <div key={index}>
+                    <div className="about-section" key={index}>
                         <div className="about-section-header">{ item.section }</div>
                         <div className="about-section-content">{ item.content }</div>
                     </div>
