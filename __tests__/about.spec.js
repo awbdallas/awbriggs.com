@@ -46,7 +46,8 @@ describe('App components', () => {
         for (let i = 0; i < amountOfSections; i += 1) {
             arrayOfSections.push({
                 section: "Hello",
-                content: "Bye"
+                content: "Bye",
+                projectId: 1
             })
         }
 

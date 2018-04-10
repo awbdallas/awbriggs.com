@@ -1,6 +1,7 @@
 from flask import Flask, send_from_directory, json
 from server.api.FooterLinks import FooterLinks
 from server.api.About import About
+from server.api.Portfolio import Portfolio
 
 app = Flask(__name__, static_folder='../../dist')
 
@@ -27,6 +28,34 @@ def get_about_info():
         status=200,
         mimetype='application/json'
     )
+
+
+@app.route('/api/portfolio')
+def get_portfolio_info():
+    return app.response_class(
+        response=json.dumps(Portfolio.get_all_portfolio_values()),
+        status=200,
+        mimetype='application/json'
+    )
+
+
+@app.route('/api/portfolio/<string:example_id>')
+def get_specific_example(example_id):
+    dict_response = Portfolio.get_specific_project(example_id)
+
+    if dict_response:
+        return app.response_class(
+            response=json.dumps(dict_response),
+            status=200,
+            mimetype='application/json'
+        )
+
+    return app.response_class(
+        response=json.dumps(),
+        status=500,
+        mimetype='application/json'
+    )
+
 
 if __name__ == '__main__':
     app.run()

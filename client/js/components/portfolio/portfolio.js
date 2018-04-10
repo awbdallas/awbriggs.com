@@ -1,8 +1,28 @@
 import React, { Component } from 'react'
 
+import axios from 'axios';
+
 import './portfolio.scss'
 
+const PORTFOLIO_API_ENDPOINT = '/api/portfolio'
+
 export default class Portfolio extends Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            portfolio: []
+        }
+
+    }
+
+    componentDidMount() {
+        axios.get(PORTFOLIO_API_ENDPOINT).then((data)=> {
+            this.setState({ portfolio: data.data.portfolio })
+        })
+    }
+
     render() {
         return (
             <div className="portfolio" >
@@ -10,43 +30,19 @@ export default class Portfolio extends Component {
                 <div className="portfolio-section">
                     <div className="portfolio-section-header" > WordPress Sites </div>
                     <div className="examples-container">
-                        <div className="blog">
-                            <img className="blog-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" />
-                            <div className="blog-content">
-                                <h4 className="blog-header">Blog Header</h4>
-                                <div className="blog-summary">Blog Summary</div>
-                                <a href="#" className="blog-read-more">Read More</a>
-                            </div>
-                        </div>
-                        <div className="blog">
-                            <img className="blog-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" />
-                            <div className="blog-content">
-                                <h4 className="blog-header">Blog Header</h4>
-                                <div className="blog-summary">Blog Summary</div>
-                                <a href="#" className="blog-read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="portfolio-section">
-                    <div className="portfolio-section-header" > Custom Sites </div>
-                    <div className="examples-container">
-                        <div className="examples">
-                            <img className="example-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" />
-                            <div className="example-content">
-                                <h4 className="blog-header">Blog Header</h4>
-                                <div className="blog-summary">Blog Summary</div>
-                                <a href="#" className="blog-read-more">Read More</a>
-                            </div>
-                        </div>
-                        <div className="examples">
-                            <img className="example-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" />
-                            <div className="blog-content">
-                                <h4 className="blog-header">Blog Header</h4>
-                                <div className="blog-summary">Blog Summary</div>
-                                <a href="#" className="blog-read-more">Read More</a>
-                            </div>
-                        </div>
+                        { this.state.portfolio && this.state.portfolio.map((item, index) => {
+                           return (
+                               <div className="blog" key={index}>
+                                   <img className="blog-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="/>
+                                   <div className="blog-content">
+                                       <h4 className="blog-header">{item.name}</h4>
+                                       <div className="blog-summary">{item.snippet}</div>
+                                       <a href={`/portfolio/${item.projectId}`} className="blog-read-more">Read More</a>
+                                   </div>
+                               </div>
+                           )
+                        })
+                        }
                     </div>
                 </div>
             </div>

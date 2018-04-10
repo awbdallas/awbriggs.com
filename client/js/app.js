@@ -6,6 +6,7 @@ import { Home } from './components/home'
 import { About } from './components/about'
 import { Portfolio } from './components/portfolio'
 import { Footer } from './components/footer'
+import { Example } from './components/Example'
 
 import {
     BrowserRouter as Router,
@@ -34,11 +35,12 @@ export default class App extends Component {
         return (
             <Router>
                 <React.Fragment>
-                    <Redirect from="/" to={tabs[0].name} />
                     <Header tabs={tabs} />
-                    { tabs.map((object, index) => {
-                        return <Route exact key={index} path={`/${object.name}`} component={object.component} />
-                    })}
+                    <Route exact key={1} path="/" component={Home} />
+                    <Route exact key={2} path="/home" component={Home} />
+                    <Route exact key={3} path="/about" component={About} />
+                    <Route exact key={4} path="/portfolio" component={Portfolio} />
+                    <Route key={5} path="/portfolio/:id" component={Example} />
                     <Footer />
                     </React.Fragment>
             </Router>

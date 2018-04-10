@@ -6,15 +6,20 @@ import MockAdapter from 'axios-mock-adapter';
 
 import { shallow, mount } from 'enzyme';
 
-import { Portfolio } from '../client/js/components/Portfolio';
+import { Example } from '../client/js/components/example';
 
-const PORTFOLIO_API_ENDPOINT = '/api/portfolio'
+const EXAMPLE_PORTFOLIO_ENDPOINT = '/api/example'
 
 describe('App components', () => {
-    let mock
+    let mock, props
     beforeEach(() => {
         mock = new MockAdapter(axios)
-        mock.onGet(PORTFOLIO_API_ENDPOINT).reply(200, { portfolio: makeMockPortfolio(3) })
+        mock.onGet(EXAMPLE_PORTFOLIO_ENDPOINT + '?id=1').reply(200,
+            { portfolio: makeMockPortfolio(3) })
+
+        props = {
+            match: { params: { id: '1' }}
+        }
     })
 
     afterEach(() => {
@@ -22,21 +27,7 @@ describe('App components', () => {
     })
 
     it('Renders', () => {
-        expect(shallow(<Portfolio/>)).toBeDefined()
-    })
-
-    it('Mounting component, should call about api', () => {
-        mount(<Portfolio/>)
-        expect(mock.handlers.get.length).toBe(1)
-    })
-
-    it('Should expect x amount of sections', () => {
-        const component = shallow(<Portfolio />)
-        component.setState({
-            portfolio: makeMockPortfolio(3)
-        })
-
-        expect(component.find('.blog-content').length).toBe(3)
+        expect(shallow(<Example {...props}/>).text()).toEqual("Hello World")
     })
 
     function makeMockPortfolio(amountOfSections) {
@@ -53,4 +44,3 @@ describe('App components', () => {
         return arrayOfSections
     }
 })
-

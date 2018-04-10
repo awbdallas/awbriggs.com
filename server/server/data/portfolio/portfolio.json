@@ -1,0 +1,14 @@
+{
+  "portfolio": [
+    {
+      "projectId": 1,
+      "name": "ASQ Dallas",
+      "snipped": "ASQ Dallas redesign of website",
+      "summary": [
+        "Worked on the update and transition of hosts from one Wordpress hosting provider to another hosting wordpress provider.",
+        "I also worked to help add payment support to enable to group to be able to accept payments as needed.",
+        "Also worked to increase user knowledge of product as needed"
+      ]
+    }
+  ]
+}
